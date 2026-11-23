@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Guimarães"
+    given-names: "Alysson"
+title: "minimalDeLM: A Minimalist, General-Purpose, Role-Free Decentralized AI Agent Swarm Harness"
+version: 0.1.0
+date-released: 2026-11-23
+url: "https://github.com/k3ybladewielder/minimalDeLM"
