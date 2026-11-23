@@ -1,6 +1,31 @@
 # minimalDeLM
 
-A minimalist, general-purpose, **role-free AI agent swarm harness** built on **Bun**, **SQLite**, **MCP**, and the **Pi** toolkit, implementing the **DeLM** (*Decentralized Language Models*, [arXiv:2606.10662](https://arxiv.org/abs/2606.10662)) architecture.
+A minimalist, general-purpose, role-free AI agent swarm harness built on Bun, SQLite, MCP, and the Pi toolkit, implementing the DeLM (Decentralized Language Models, [arXiv:2606.10662](https://arxiv.org/abs/2606.10662)) architecture.
+
+
+Unlike centralized systems, which designate a "coordinator" to delegate or refine tasks for other agents, the DeLM framework eliminates the central coordinator and operates using homogeneous peer agents (with no predefined roles). These agents asynchronously pull subtasks from a shared global queue and collaborate via a "Shared Verified Context"—a framework in which every update is accepted only after being condensed into "compact gists" and verified against supporting evidence—thereby avoiding communication bottlenecks and "idle bubbles."
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant User as CLI / Demand
+    participant Queue as Task Queue (SQLite)
+    participant Peers as Parallel Peer Agents (--nagents 3)
+    participant Context as Shared Verified Context
+
+    User->>Queue: Initialize goal (root task)
+    loop Async until queue is empty
+        Peers->>Queue: claim_task() (LPT + lease)
+        Context-->>Peers: read_context() (reachable gists)
+        opt More subtasks needed
+            Peers->>Queue: delm_spawn_tasks(T1, T2, T3)
+        end
+        Note over Peers: Execute via Default-Deny MCP (+ HITL if needed)
+        Peers->>Context: delm_publish_gist(gist, evidence_ids, base_seq)
+        Note right of Context: Admission Gate (structural + CAS + optional semantic)
+    end
+    Context-->>User: Final Verified Gists
+```
 
 ---
 
