@@ -86,12 +86,6 @@ tests/
 * [**Getting Started & Usage**](docs/getting-started.md)
 * [**Architecture**](docs/architecture.md)
 * [**Verification & Formal Model Checking**](docs/verification.md)
-* **Architecture Decision Records (ADRs):**
-  * [ADR-001: Decentralized DeLM Swarm with Zero Roles](docs/adr/001-decentralized-no-roles.md)
-  * [ADR-002: Dual Worker Backend (Embedded Core vs. Isolated CLI)](docs/adr/002-dual-backend-embedded-and-cli.md)
-  * [ADR-003: Default-Deny MCP Policy and Serialized HITL](docs/adr/003-default-deny-mcp-and-hitl.md)
-  * [ADR-004: Local Bun Runtime, `bun:sqlite`, and Formal Verification](docs/adr/004-bun-sqlite-and-formal-verification.md)
-  * [ADR-005: Arbitrated MVP Design Decisions](docs/adr/005-arbitrated-mvp-decisions.md)
 
 ---
 
