@@ -1,0 +1,23 @@
+{
+  "name": "minimaldelm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "./.bun/bin/bun run src/index.ts",
+    "test": "./.bun/bin/bun test",
+    "check": "./.bun/bin/bun x tsc --noEmit"
+  },
+  "dependencies": {
+    "@earendil-works/pi-agent-core": "^1.6.0",
+    "@earendil-works/pi-ai": "^1.6.0",
+    "@earendil-works/pi-coding-agent": "^1.6.0",
+    "@modelcontextprotocol/sdk": "^1.32.2"
+  },
+  "devDependencies": {
+    "@ts-model-checker/core": "^1.0.3",
+    "@types/bun": "^1.4.5",
+    "fast-check": "^4.11.0",
+    "typescript": "^7.0.2"
+  }
+}
